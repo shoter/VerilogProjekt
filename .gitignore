@@ -35,7 +35,11 @@
 _ngo/*
 xst/*
 xlnx_auto*xdb/
-
+*.cmd
+isim/*
+*.exe
+*.wdb
+*.ini
 
 #ignore swap
 *.swp
