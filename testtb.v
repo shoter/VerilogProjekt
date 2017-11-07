@@ -40,15 +40,17 @@ module testtb;
 
 	initial begin
 		// Initialize Inputs
-		clk = 0;
-		rst = 0;
-
-		// Wait 100 ns for global reset to finish
-		#100;
-        
-		// Add stimulus here
+		clk = 1'b1;
+		
+		forever #1 clk = ~clk;
 
 	end
+	
+	initial begin
+	
+		rst = 1'b1;
+		#10 rst = 1'b0;
+		end
       
 endmodule
 
