@@ -69,9 +69,11 @@ begin
 						KEY_F:
 							ST_L <= SL_XOR;
 					endcase
-				end
-					
+				end	
 			end
+		S_OP:
+			ST <= key == KEY_NONE ? S_OBL : S_OP;
+		S_OBL:
 		
 	endcase
 	end
