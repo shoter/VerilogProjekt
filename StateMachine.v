@@ -59,7 +59,7 @@ begin
 				ST <= S_OP;
 					case(key)
 						KEY_B:
-							ST_L <= SL_ADD
+							ST_L <= SL_ADD;
 						KEY_C:
 							ST_L <= SL_SUB;
 						KEY_D:
@@ -77,11 +77,11 @@ begin
 	end
 end
 
-always @(posedge clk)
+/*always @(posedge clk)
 begin
 if(ST == S_WPR)
 end
-/*
+
 always @
 begin
 	case(ST)
