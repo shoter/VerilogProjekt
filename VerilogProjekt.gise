@@ -208,6 +208,7 @@
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="Numerator.lso"/>
       <outfile xil_pn:name="Numerator.ngc"/>
       <outfile xil_pn:name="Numerator.ngr"/>
