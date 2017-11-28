@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-11-07T15:33:40</DateModified>
+  <DateModified>2017-11-28T14:13:28</DateModified>
   <ModuleName>test</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>/home/lab_jos/test/VerilogProjekt/iseconfig/test.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/lab_jos/test/VerilogProjekt</ImplementationReportsDirectory>
+  <SavedFilePath>/home/lab_jos/.4laczak/VerilogProjekt/iseconfig/test.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/lab_jos/.4laczak/VerilogProjekt/</ImplementationReportsDirectory>
   <DateInitialized>2017-11-07T15:33:40</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

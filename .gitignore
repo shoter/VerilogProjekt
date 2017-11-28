@@ -3,7 +3,6 @@
 *.bld
 *.cmd_log
 *.drc
-*.lso
 *.ncd
 *.ngc
 *.ngd
@@ -11,15 +10,12 @@
 *.pad
 *.par
 *.pcf
-*.prj
 *.ptwx
-*.stx
 *.syr
 *.twr
 *.twx
 *.ut
 *.xpi
-*.xst
 *.xmsgs
 *.unroutes
 *.xwbt
@@ -43,4 +39,5 @@ isim/*
 
 #ignore swap
 *.swp
+
 

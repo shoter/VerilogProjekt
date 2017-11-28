@@ -82,6 +82,7 @@
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
     <transform xil_pn:end_ts="1510066021" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1510066021">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1510066021" xil_pn:in_ck="-7910674615633696930" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1510066021">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -110,6 +111,7 @@
     <transform xil_pn:end_ts="1510066022" xil_pn:in_ck="-7910674615633696930" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-6697623109379116937" xil_pn:start_ts="1510066021">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="testtb_beh.prj"/>
@@ -119,11 +121,13 @@
     <transform xil_pn:end_ts="1510066023" xil_pn:in_ck="8704107076368949253" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7678952718675748742" xil_pn:start_ts="1510066022">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="testtb_isim_beh.wdb"/>
     </transform>
     <transform xil_pn:end_ts="1510065557" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1510065557">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1510065557" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="8936091833403561055" xil_pn:start_ts="1510065557">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -152,6 +156,7 @@
     <transform xil_pn:end_ts="1510065566" xil_pn:in_ck="4663744324" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="9090108623185228458" xil_pn:start_ts="1510065557">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
@@ -173,6 +178,7 @@
     <transform xil_pn:end_ts="1510065589" xil_pn:in_ck="5078817563622" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-2873931263541095002" xil_pn:start_ts="1510065583">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
       <outfile xil_pn:name="test.bld"/>
@@ -183,6 +189,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
@@ -198,6 +205,7 @@
     <transform xil_pn:end_ts="1510065627" xil_pn:in_ck="6023078490662784640" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="-8699727321066641134" xil_pn:start_ts="1510065604">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
       <outfile xil_pn:name="test.ncd"/>
       <outfile xil_pn:name="test.pad"/>
@@ -212,6 +220,8 @@
     <transform xil_pn:end_ts="1510065640" xil_pn:in_ck="5078817563491" xil_pn:name="TRANEXT_bitFile_spartan3a" xil_pn:prop_ck="-426368325978129584" xil_pn:start_ts="1510065627">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="test.bgn"/>
       <outfile xil_pn:name="test.bit"/>
@@ -223,6 +233,7 @@
     <transform xil_pn:end_ts="1510065627" xil_pn:in_ck="5078817563491" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1510065624">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
       <outfile xil_pn:name="test.twr"/>
       <outfile xil_pn:name="test.twx"/>
