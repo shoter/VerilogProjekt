@@ -33,4 +33,14 @@
 `define SL_OR  3'd3
 `define SL_AND 3'd4
 
+`define ASCII_A 8'h41
+`define ASCII_B 8'h42
+`define ASCII_D 8'h44
+`define ASCII_N 8'h4e
+`define ASCII_O 8'h4f
+`define ASCII_R 8'h52
+`define ASCII_S 8'h53
+`define ASCII_U 8'h55
+`define ASCII_X 8'h58
+
 `endif
