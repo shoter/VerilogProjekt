@@ -21,7 +21,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module StateMachine(
-			input key,
+			input [4:0] key,
 			input clk,
 			input rst,
 			input end_obl,
@@ -52,11 +52,11 @@ begin
 					ST <= `S_GON;
 					ST_L <= ST_L == `SL_A ? `SL_B : `SL_A;
 				end
-				if(key >= `KEY_0 && key <= `KEY_9)
+				else if(key >= `KEY_0 && key <= `KEY_9)
 				begin
 					ST <= `S_GON;
 				end
-				else
+				else if(key != `KEY_NONE)
 				begin
 				ST <= `S_OP;
 					case(key)

@@ -1,0 +1,2 @@
+verilog isim_temp "Numerator.v"
+verilog isim_temp "/opt/xilinx/ISE//verilog/src/glbl.v"
