@@ -1,5 +1,5 @@
-`ifndef defines_h_
-`define defines_h_
+`ifndef _defines_h_
+`define _defines_h_
 
 `define KEY_0 0
 `define KEY_1 1
