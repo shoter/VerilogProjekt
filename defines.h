@@ -17,13 +17,20 @@
 `define KEY_D 13
 `define KEY_E 14
 `define KEY_F 15
+`define KEY_NONE 16
 
 `define S_WPR 2'd0
 `define S_OP  2'd1
 `define S_OBL 2'd2
 `define S_GON 2'd3
 
-`define SL_A 2'd0
-`define SL_B 2'd1
+`define SL_A 3'd0
+`define SL_B 3'd1
+
+`define SL_ADD 3'd0
+`define SL_SUB 3'd1
+`define SL_XOR 3'd2
+`define SL_OR  3'd3
+`define SL_AND 3'd4
 
 `endif
