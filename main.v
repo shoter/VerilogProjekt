@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`include "defines.vh"
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -22,8 +23,8 @@ module main
 #(parameter div = 2500000)
 ( input rst, input clk, inp, output rw_out, output rs_out, output e_out, output [7:0] db_out);
 
-
-wire [3:0] bcd1, bcd2, bcd3, bcd4;
+localparam bcd1 = 4'd0, bcd2 = 4'd1, bcd3 = 4'd2, bcd4 = 4'd3;
+//wire [3:0] bcd1, bcd2, bcd3, bcd4;
 wire [1:0] lcd_cnt;
 wire [1:0] init_sel, mux_sel;
 
@@ -72,7 +73,7 @@ red red(
 .rst(rst),
 .en(inp),
 .out(rededge));
-
+/*
 bcdCounter bcdc(
 	.clk(clk),
 	.rst(rst),
@@ -82,10 +83,9 @@ bcdCounter bcdc(
 	.out3(bcd3),
 	.out4(bcd4)
 );
-
+*/
 LCD_dp ldp(
 .init_sel(init_sel),
-.mux_sel(mux_sel),
 .data_sel(data_sel),
 .DB_sel(db_sel),
 .count0(bcd1),
