@@ -20,13 +20,39 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module main
-#(parameter div = 2500000)
-( input rst, input clk, inp, output rw_out, output rs_out, output e_out, output [7:0] db_out);
+#(parameter div = 250000)
+( input rst, input clk,
+input [3:0] row,
+output [3:0] col,	
+output rw_out, output rs_out, output e_out, output [7:0] db_out,
+							  
+		output [6:0] leds
+
+
+);
 
 localparam bcd1 = 4'd0, bcd2 = 4'd1, bcd3 = 4'd2, bcd4 = 4'd3;
 //wire [3:0] bcd1, bcd2, bcd3, bcd4;
 wire [1:0] lcd_cnt;
 wire [1:0] init_sel, mux_sel;
+
+wire [1:0] ST;
+wire  [2:0] ST_L;
+wire  [3:0] A1,A2,A3,A4,
+				B1,B2,B3,B4;
+
+kikko #(.div(100)) kikko(
+	.clk(clk),
+	.rst(rst),
+	.row(row),
+	.col(col),
+	.ST(ST),
+	.ST_L(ST_L),
+	.A1(A1), .A2(A2), .A3(A3), .A4(A4),
+	.B1(B1), .B2(B2), .B3(B3), .B4(B4),
+	.leds(leds)
+);
+
 
 clockDivider #(.div(div)) clokko 
 (
@@ -68,30 +94,16 @@ write_cycle wr(
 	.rw_out(rw_out)
 );
 
-red red(
-.clk(clk),
-.rst(rst),
-.en(inp),
-.out(rededge));
-/*
-bcdCounter bcdc(
-	.clk(clk),
-	.rst(rst),
-	.en(rededge),
-	.out1(bcd1),
-	.out2(bcd2),
-	.out3(bcd3),
-	.out4(bcd4)
-);
-*/
+
 LCD_dp ldp(
 .init_sel(init_sel),
 .data_sel(data_sel),
 .DB_sel(db_sel),
-.count0(bcd1),
-.count1(bcd2),
-.count2(bcd3),
-.count3(bcd4),
+.state(ST),
+.statelocal(ST_L),
+.index(mux_sel),
+.A1(A1), .A2(A2), .A3(A3), .A4(A4),
+.B1(B1), .B2(B2), .B3(B3), .B4(B4),
 .DB_out(db_out)
 );
 

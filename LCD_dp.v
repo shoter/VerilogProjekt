@@ -50,14 +50,14 @@ always @*
 	case(state)
 	2'd0: mux_out = {4'h3, num_out};
 	2'd1: mux_out = OP_out;
-	//default
+	default: mux_out = `ASCII_BLANK;
 	endcase
 	
 always @*
 	case(statelocal)
 	3'd0: num_out = A_out;
 	3'd1: num_out = B_out;
-	//default
+	default: num_out = A_out;
 	endcase
 	
 always @*
@@ -74,6 +74,7 @@ always @*
 		case(index)
 		2'd0: OP_out = `ASCII_A;
 		2'd1, 2'd2: OP_out = `ASCII_D;
+		default: OP_out = `ASCII_BLANK;
 		endcase
 		
 	3'd1:
@@ -81,6 +82,7 @@ always @*
 		2'd0: OP_out = `ASCII_S;
 		2'd1: OP_out = `ASCII_U;
 		2'd2: OP_out = `ASCII_B;
+		default: OP_out = `ASCII_BLANK;
 		endcase
 
 	3'd2:
@@ -88,12 +90,14 @@ always @*
 		2'd0: OP_out = `ASCII_A;
 		2'd1: OP_out = `ASCII_N;
 		2'd2: OP_out = `ASCII_D;
+		default: OP_out = `ASCII_BLANK;
 		endcase
 
 	3'd3: 
 		case(index)
 		2'd0: OP_out = `ASCII_O;
 		2'd1: OP_out = `ASCII_R;
+		default: OP_out = `ASCII_BLANK;
 		endcase
 
 	3'd4: 
@@ -101,8 +105,9 @@ always @*
 		2'd0: OP_out = `ASCII_X;
 		2'd1: OP_out = `ASCII_O;
 		2'd2: OP_out = `ASCII_R;
+		default: OP_out = `ASCII_BLANK;
 		endcase
-		
+	default: OP_out = `ASCII_BLANK;
 	endcase
 
 always @*

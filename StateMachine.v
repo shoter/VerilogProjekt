@@ -20,31 +20,38 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module StateMachine(
+module StateMachine
+#(parameter waiter = 10000)
+(
 			input [4:0] key,
 			input clk,
 			input rst,
 			input end_obl,
 			output reg [1:0] ST,
+			output reg [1:0] index,
 			output reg [2:0] ST_L
     );
-
-
-reg [1:0] nST, nST_L;
 	 
+localparam nbits = clog2b(waiter) + 1;
+reg [nbits - 1:0] cnt;
+
+assign comp = (cnt >= (waiter - 1));	 
+ 
 always @(posedge clk, posedge rst)
 begin
 	if(rst) begin
 		ST <= `S_WPR;
 		ST_L <= `SL_A;
+		index <= 2'd0;
 	end
-	else begin
-		//ST <= nST;
-		//ST_L <= nST_L;
-		
+	else begin		
 	case(ST)
-		`S_GON:
-			ST <= key == `KEY_NONE ? `S_WPR : `S_GON;
+		`S_GON: begin
+			cnt <= cnt + 1;
+			if(comp) begin
+				ST <= key == `KEY_NONE ? `S_WPR : `S_GON;
+				cnt  <= cnt <= {nbits{1'b0}};
+			end end
 		`S_WPR:
 			begin
 				if(key == `KEY_A)
@@ -55,10 +62,12 @@ begin
 				else if(key >= `KEY_0 && key <= `KEY_9)
 				begin
 					ST <= `S_GON;
+					index <= index + 1;
 				end
 				else if(key != `KEY_NONE)
 				begin
 				ST <= `S_OP;
+				index <= 2'd0;
 					case(key)
 						`KEY_B:
 							ST_L <= `SL_ADD;
@@ -73,8 +82,12 @@ begin
 					endcase
 				end	
 			end
-		`S_OP:
+		`S_OP: begin
+			cnt <= cnt + 1;
+			if(comp) begin
 			ST <= key == `KEY_NONE ? `S_OBL : `S_OP;
+			cnt <= cnt <= {nbits{1'b0}};
+			end end
 		`S_OBL:
 			ST <= key == `KEY_NONE && end_obl ? `S_WPR : `S_OBL;
 		
@@ -82,25 +95,14 @@ begin
 	end
 end
 
-/*always @(posedge clk)
+function integer clog2b;
+input reg[31:0] val;
 begin
-if(ST == S_WPR)
+val = val - 1;
+for(clog2b=0; val > 0; clog2b = clog2b + 1)
+	val = val >> 1;
 end
-
-always @
-begin
-	case(ST)
-		S_GON:
-			nST = key == KEY_NONE ? S_WPR : S_GON;
-		S_WPR:
-			begin
-				if(key == KEY_A)
-					
-			end
-		
-	endcase
-
-end*/
+endfunction
 
 
 endmodule

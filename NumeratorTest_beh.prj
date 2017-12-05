@@ -1,3 +1,0 @@
-verilog work "Numerator.v"
-verilog work "NumeratorTest.v"
-verilog work "/opt/xilinx/ISE//verilog/src/glbl.v"

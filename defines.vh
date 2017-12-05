@@ -42,5 +42,6 @@
 `define ASCII_S 8'h53
 `define ASCII_U 8'h55
 `define ASCII_X 8'h58
+`define ASCII_BLANK 8'h20
 
 `endif

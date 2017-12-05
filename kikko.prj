@@ -1,0 +1,6 @@
+verilog work "StateMachine.v"
+verilog work "Numerator.v"
+verilog work "enabler.v"
+verilog work "Decoder.v"
+verilog work "clockDivider.v"
+verilog work "kikko.v"
