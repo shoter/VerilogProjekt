@@ -58,6 +58,7 @@ begin
 				begin
 					ST <= `S_GON;
 					ST_L <= ST_L == `SL_A ? `SL_B : `SL_A;
+					index <= 2'd0;
 				end
 				else if(key >= `KEY_0 && key <= `KEY_9)
 				begin
