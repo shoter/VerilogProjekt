@@ -36,6 +36,7 @@ module  kikko
 	 
 	 wire [4:0] key;
 	 wire [1:0] index;
+	 wire [15:0] number;
 	 
 	 clockDivider #(.div(div)) clokko(
 		.clk(clk),
@@ -72,6 +73,16 @@ module  kikko
 		.en(enableWriting)
 		);
 		
+		Calkko Calkko(
+		.A1(A1), .A2(A2), .A3(A3), .A4(A4),
+		.B1(B1), .B2(B2), .B3(B3), .B4(B4),
+		.ST(ST),
+		.ST_L(ST_L),
+		.set(set),
+		.number(number)
+		
+		);
+		
 		Numerator Numerator(
 			.index(index),
 			.enabled(enableWriting),
@@ -82,8 +93,8 @@ module  kikko
 			.A1(A1), .A2(A2), .A3(A3), .A4(A4),
 			.B1(B1), .B2(B2), .B3(B3), .B4(B4),
 			
-			.set(1'b0),
-			.setVal(16'd0)
+			.set(set),
+			.setVal(number)
 		);
 	
 

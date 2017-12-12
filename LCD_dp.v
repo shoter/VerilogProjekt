@@ -62,10 +62,10 @@ always @*
 	
 always @*
 	case(index)
-	2'd0: begin A_out = A1; B_out = B1; end
-	2'd1: begin A_out = A2; B_out = B2; end
-	2'd2: begin A_out = A3; B_out = B3; end
-	2'd3: begin A_out = A4; B_out = B4; end
+	2'd0: begin A_out = A4; B_out = B4; end
+	2'd1: begin A_out = A3; B_out = B3; end
+	2'd2: begin A_out = A2; B_out = B2; end
+	2'd3: begin A_out = A1; B_out = B1; end
 	endcase
 	
 always @*
