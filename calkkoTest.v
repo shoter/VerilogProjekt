@@ -61,15 +61,15 @@ module calkkoTest;
 	initial begin
 		ST = `S_OBL;
 		
-		A1 = 4'd5;
+		A1 = 4'd0;
 		A2 = 4'd0;
 		A3 = 4'd0;
-		A4 = 4'd0;
+		A4 = 4'd5;
 		
-		B1 = 4'd1;
+		B1 = 4'd0;
 		B2 = 4'd0;
 		B3 = 4'd0;
-		B4 = 4'd0;
+		B4 = 4'd1;
 		
 		
 		ST_L = `SL_ADD;

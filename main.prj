@@ -1,3 +1,4 @@
+verilog work "bin2bcd.v"
 verilog work "bcd2bin.v"
 verilog work "StateMachine.v"
 verilog work "Numerator.v"

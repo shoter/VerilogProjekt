@@ -90,8 +90,12 @@ begin
 			cnt <= cnt <= {nbits{1'b0}};
 			end end
 		`S_OBL:
-			ST <= key == `KEY_NONE && end_obl ? `S_WPR : `S_OBL;
-		
+			if(key == `KEY_NONE && end_obl) begin
+				ST <= `S_WPR;
+				ST_L <= `SL_A;
+			end
+			else
+			ST <= `S_OBL;
 	endcase
 	end
 end

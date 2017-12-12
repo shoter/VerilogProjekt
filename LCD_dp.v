@@ -78,41 +78,41 @@ always @*
 	
 always @*
 	case(statelocal)
-	3'd0:
+	`SL_ADD:
 		case(index)
-		2'd0: OP_out = `ASCII_A;
-		2'd1, 2'd2: OP_out = `ASCII_D;
+		2'd2: OP_out = `ASCII_A;
+		2'd0, 2'd1: OP_out = `ASCII_D;
 		default: OP_out = `ASCII_BLANK;
 		endcase
 		
-	3'd1:
+	`SL_SUB:
 		case(index)
-		2'd0: OP_out = `ASCII_S;
+		2'd2: OP_out = `ASCII_S;
 		2'd1: OP_out = `ASCII_U;
-		2'd2: OP_out = `ASCII_B;
+		2'd0: OP_out = `ASCII_B;
 		default: OP_out = `ASCII_BLANK;
 		endcase
 
-	3'd2:
+	`SL_AND:
 		case(index)
-		2'd0: OP_out = `ASCII_A;
+		2'd2: OP_out = `ASCII_A;
 		2'd1: OP_out = `ASCII_N;
-		2'd2: OP_out = `ASCII_D;
+		2'd0: OP_out = `ASCII_D;
 		default: OP_out = `ASCII_BLANK;
 		endcase
 
-	3'd3: 
+	`SL_OR: 
 		case(index)
-		2'd0: OP_out = `ASCII_O;
-		2'd1: OP_out = `ASCII_R;
-		default: OP_out = `ASCII_BLANK;
-		endcase
-
-	3'd4: 
-		case(index)
-		2'd0: OP_out = `ASCII_X;
 		2'd1: OP_out = `ASCII_O;
-		2'd2: OP_out = `ASCII_R;
+		2'd0: OP_out = `ASCII_R;
+		default: OP_out = `ASCII_BLANK;
+		endcase
+
+	`SL_XOR: 
+		case(index)
+		2'd2: OP_out = `ASCII_X;
+		2'd1: OP_out = `ASCII_O;
+		2'd0: OP_out = `ASCII_R;
 		default: OP_out = `ASCII_BLANK;
 		endcase
 	default: OP_out = `ASCII_BLANK;

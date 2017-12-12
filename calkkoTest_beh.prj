@@ -1,0 +1,5 @@
+verilog work "bin2bcd.v"
+verilog work "bcd2bin.v"
+verilog work "Calkko.v"
+verilog work "calkkoTest.v"
+verilog work "/opt/xilinx/ISE//verilog/src/glbl.v"
