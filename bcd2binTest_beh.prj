@@ -1,3 +1,0 @@
-verilog work "bcd2bin.v"
-verilog work "bcd2binTest.v"
-verilog work "/opt/xilinx/ISE//verilog/src/glbl.v"

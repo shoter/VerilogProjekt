@@ -40,7 +40,17 @@ wire [1:0] ST;
 wire  [2:0] ST_L;
 wire  [3:0] A1,A2,A3,A4,
 				B1,B2,B3,B4;
+wire [1:0] index;
+reg blink;
+wire blinkClock;
 
+always @(posedge rst, posedge blinkClock)
+begin
+	if(rst)
+		blink <= 1'b0;
+	else
+	blink <= ~blink;
+end
 kikko #(.div(100)) kikko(
 	.clk(clk),
 	.rst(rst),
@@ -50,7 +60,8 @@ kikko #(.div(100)) kikko(
 	.ST_L(ST_L),
 	.A1(A1), .A2(A2), .A3(A3), .A4(A4),
 	.B1(B1), .B2(B2), .B3(B3), .B4(B4),
-	.leds(leds)
+	.leds(leds),
+	.index(index)
 );
 
 
@@ -60,6 +71,15 @@ clockDivider #(.div(div)) clokko
 .rst(rst),
 .slow_clk(slow_clk)
 );
+
+
+clockDivider #(.div(2500000)) blinkko 
+(
+.clk(clk),
+.rst(rst),
+.slow_clk(blinkClock)
+);
+
 
 main_controller main_controller(
 .rst(rst), .clk(slow_clk),
@@ -104,6 +124,7 @@ LCD_dp ldp(
 .index(mux_sel),
 .A1(A1), .A2(A2), .A3(A3), .A4(A4),
 .B1(B1), .B2(B2), .B3(B3), .B4(B4),
+.inputIndex(index), .blink(blink),
 .DB_out(db_out)
 );
 

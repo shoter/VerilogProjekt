@@ -24,12 +24,14 @@ module LCD_dp(
 			input [1:0] state, input [2:0] statelocal, input [1:0] index,
 			input [3:0] A1, input [3:0] A2, input [3:0] A3, input [3:0] A4,
 			input [3:0] B1, input [3:0] B2, input [3:0] B3, input [3:0] B4,
+			input [1:0] inputIndex, input blink,
 			output reg [7:0] DB_out
     );
 localparam [5:0] clear = 6'd1;
 localparam [5:0] displayOn = 6'b001110;
 localparam [5:0] entryMode = 6'b000110;
 localparam [5:0] functionSet = 6'b111000;
+
 
 reg [5:0] init_out;
 reg [7:0] mux_out;
@@ -48,7 +50,13 @@ always @*
 	
 always @*
 	case(state)
-	2'd0: mux_out = {4'h3, num_out};
+	2'd0: 
+	begin
+		if((2'd3 - index) == inputIndex && blink)
+			mux_out = `ASCII_BLANK;
+		else
+			mux_out = {4'h3, num_out};
+	end
 	2'd1: mux_out = OP_out;
 	default: mux_out = `ASCII_BLANK;
 	endcase

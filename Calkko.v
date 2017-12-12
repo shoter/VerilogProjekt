@@ -32,7 +32,7 @@ wire [15:0] numberA;
 wire [15:0] numberB;
 
 wire [13:0] binaryA, binaryB;
-wire [13:0] binaryResult;
+reg [13:0] binaryResult;
 
 assign set = ST == `S_OBL;
 assign numberA = {A4,A3,A2,A1};

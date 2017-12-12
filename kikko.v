@@ -31,11 +31,11 @@ module  kikko
 		output [3:0] A1,A2,A3,A4,
 							  B1,B2,B3,B4,
 							  
-		output [6:0] leds
+		output [6:0] leds,
+		output [1:0] index
     );
 	 
 	 wire [4:0] key;
-	 wire [1:0] index;
 	 wire [15:0] number;
 	 
 	 clockDivider #(.div(div)) clokko(
