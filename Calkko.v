@@ -28,15 +28,10 @@ module Calkko(
 		output reg [15:0] number
     );
 
-wire [15:0] numberA;
-wire [15:0] numberB;
-
 wire [13:0] binaryA, binaryB;
 reg [13:0] binaryResult;
 
 assign set = ST == `S_OBL;
-assign numberA = {A4,A3,A2,A1};
-assign numberB = {B4,B3,B2,B1};
 
 wire [3:0] BCD1, BCD2, BCD3, BCD4;
 
@@ -51,33 +46,28 @@ always @* begin
 	if(set) begin
 		case(ST_L) 
 			`SL_ADD:
-				number <= numberA + numberB;
+				binaryResult <= binaryA + binaryB;
 			`SL_SUB:
-				number <= numberA - numberB;
-			`SL_XOR: begin
+				binaryResult <= binaryA - binaryB;
+			`SL_XOR:
 				binaryResult <= binaryA ^ binaryB;
-				number[15:12] <= BCD4;
-				number[11:8] <= BCD3;
-				number [7:4] <= BCD2;
-				number[3:0] <= BCD1; end
-			`SL_AND: begin
+			`SL_AND: 
 				binaryResult <= binaryA & binaryB;
-				number[15:12] <= BCD4;
-				number[11:8] <= BCD3;
-				number [7:4] <= BCD2;
-				number[3:0] <= BCD1; end
-			`SL_OR: begin
-				binaryResult <= binaryA | binaryB;
-				number[15:12] <= BCD4;
-				number[11:8] <= BCD3;
-				number [7:4] <= BCD2;
-				number[3:0] <= BCD1; end
-				default:
-				number <= 16'd0;
+			`SL_OR: binaryResult <= binaryA | binaryB;
+			default:
+				binaryResult <= 14'd0;
+
 		endcase
+		number[15:12] <= BCD4;
+				number[11:8] <= BCD3;
+				number [7:4] <= BCD2;
+				number[3:0] <= BCD1;
 	end
 	else 
+	begin
 		number <= 16'd0;
+		binaryResult <= 14'd0;
+	end
 end
 
 

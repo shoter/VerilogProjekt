@@ -52,7 +52,7 @@ module  kikko
 			.DecodeOut(key)
 	);
 	
-	KeyLedDisplay display(.key(key),
+	KeyLedDisplay display(.ST(ST), .ST_L(ST_L),
 	.segOut(leds));
 	
 	

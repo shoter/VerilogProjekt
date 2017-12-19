@@ -73,7 +73,7 @@ clockDivider #(.div(div)) clokko
 );
 
 
-clockDivider #(.div(2500000)) blinkko 
+clockDivider #(.div(15000000)) blinkko 
 (
 .clk(clk),
 .rst(rst),
